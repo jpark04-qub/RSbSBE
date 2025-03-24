@@ -36,15 +36,15 @@ function [S, Prog, Fnum] = RSbSBE(cfg, classifer, x_t, x_v, y_t, y_v)
     Fnum = [];
     
     max_step = 10000;
-    max_iter = 100;
-    check_iter = 20;
+    max_iter = 500;
+    check_iter = 150;
 
     step = 1;
     P_s = []; % performance of step   
     F = x_t;  % full feature set
     while(step <= max_step)  
         % local stop 
-        ctrl.Lc = ctrl.Lc * 1.1;
+        ctrl.Lc = ctrl.Lc * 1.02;
 
         % rearrange remaining features
         F_t = rearrange(ctrl.tfs, ctrl.sub_f);
